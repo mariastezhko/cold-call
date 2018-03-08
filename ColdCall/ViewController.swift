@@ -14,11 +14,19 @@ class ViewController: UIViewController {
     let names = ["Jay", "Bryant", "Jimmy", "Cody", "Ryota", "Ready?", "Uyanga", "Courtney"]
     
    
-    
     @IBAction func callButtonPressed(_ sender: UIButton) {
-        var rndNum = Int(arc4random_uniform(8))
+        randomDisplay()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        randomDisplay()
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    func randomDisplay(){
+        let rndNum = Int(arc4random_uniform(8))
         nameLabel.text = names[rndNum]
-        var rndNum2 = Int(arc4random_uniform(4) + 1)
+        let rndNum2 = Int(arc4random_uniform(4) + 1)
         nameLabel.text = names[rndNum]
         numLabel.text = String(rndNum2)
         if rndNum2 == 1 || rndNum2 == 2 {
@@ -31,24 +39,10 @@ class ViewController: UIViewController {
             numLabel.textColor = UIColor.green
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        var rndNum = Int(arc4random_uniform(8))
-        var rndNum2 = Int(arc4random_uniform(4) + 1)
-        nameLabel.text = names[rndNum]
-        numLabel.text = "3"
-        numLabel.textColor = UIColor.orange
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
